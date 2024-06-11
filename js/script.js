@@ -109,7 +109,7 @@ async function displayAlbums() {
   
   for (let index = 0; index < array.length; index++) {
     const e = array[index];
-    if (e.href.includes("/songs/") 
+    if (e.href.includes("/songs/") && !e.href.includes(".htaccess")){
       // console.log(e.href);
       
       // console.log(e.href.split("/").slice(-1)[0]);
@@ -133,9 +133,9 @@ async function displayAlbums() {
       <img src="/songs/${folder}/cover.jpg" alt="">
       <h2>${response.title}</h2>
       <p>${response.description}</p>
-    </div> `
+     </div> `
 
-    
+    }
   }
 
 
