@@ -21,7 +21,10 @@ function convertSecondsToMinuteSeconds(seconds) {
 
 async function getsongs(folder) {
   currFolder = folder;
-  let a = await fetch(`http://192.168.0.109:5500/${folder}/`)
+  // let a = await fetch(`https://192.168.0.109:5500/${folder}/`)
+  let a = await fetch(`/${folder}/`)
+
+  // let a = await fetch(`/songs/`)
 
   let response = await a.text();
   let div = document.createElement("div")
@@ -64,7 +67,7 @@ async function getsongs(folder) {
   Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach(e => {
     e.addEventListener("click", element => {
 
-      console.log(e.querySelector(".info").firstElementChild.innerHTML);
+      // console.log(e.querySelector(".info").firstElementChild.innerHTML);
 
 
       playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim())
@@ -78,19 +81,22 @@ async function getsongs(folder) {
 const playMusic = (track, pause = false) => {
   // let audio = new Audio("/songs/" + tack)
   currentsong.src = `/${currFolder}/` + track
+  currentsong.onloadedmetadata = () => {
   currentsong.play()
   if (!pause) {
     currentsong.play()
     play.src = "img/pause.svg"
   }
+};
   document.querySelector(".songinfo").innerHTML = decodeURI(track)
   document.querySelector(".songtime").innerHTML = "00:00/00:00"
 }
 
 
 async function displayAlbums() {
-  let a = await fetch(`http://192.168.0.109:5500/songs/`)
-  // let a = await fetch(`/songs/`) //Jab isko Host karenge tab https: wala use nahi kar sakte hai but aise chalane ke liye wahi use hoga
+  // let a = await fetch(`https://192.168.0.109:5500/songs/`)
+  let a = await fetch(`/songs/`)
+  // let a = await fetch(`/songs/`) //Jab isko Host karenge tab httpss: wala use nahi kar sakte hai but aise chalane ke liye wahi use hoga
   let response = await a.text();
   let div = document.createElement("div")
   div.innerHTML = response;
@@ -112,12 +118,12 @@ async function displayAlbums() {
 
 
       //GEt the metadata of the folder
-      let a = await fetch(`http://192.168.0.109:5500/songs/${folder}/info.json`)
+      let a = await fetch(`/songs/${folder}/info.json`)
       let response = await a.json();
       // console.log(response)
       cardContainer.innerHTML = cardContainer.innerHTML + ` <div data-folder="${folder}" class="card">
       <div class="play">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+        <svg xmlns="httpss://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
           <circle class="bg-circle" cx="24" cy="24" r="24" />
           <circle class="inner-circle" cx="24" cy="24" r="20" />
           <path class="path"
