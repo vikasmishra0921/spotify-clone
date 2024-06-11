@@ -89,8 +89,8 @@ const playMusic = (track, pause = false) => {
 
 
 async function displayAlbums() {
-  // let a = await fetch(`http://192.168.0.109:5500/songs/`)
-  let a = await fetch(`/songs/`) //Jab isko Host karenge tab https: wala use nahi kar sakte hai but aise chalane ke liye wahi use hoga
+  let a = await fetch(`http://192.168.0.109:5500/songs/`)
+  // let a = await fetch(`/songs/`) //Jab isko Host karenge tab https: wala use nahi kar sakte hai but aise chalane ke liye wahi use hoga
   let response = await a.text();
   let div = document.createElement("div")
   div.innerHTML = response;
