@@ -22,7 +22,7 @@ function convertSecondsToMinuteSeconds(seconds) {
 async function getsongs(folder) {
   currFolder = folder;
   // let a = await fetch(`https://192.168.0.109:5500/${folder}/`)
-  let a = await fetch(`/${folder}/Songs/${folder}/`)
+  let a = await fetch(`/${folder}/Songs/${folder}/`) //yaha or display album mein change rna h
 
   // let a = await fetch(`/songs/`)
 
@@ -95,7 +95,7 @@ const playMusic = (track, pause = false) => {
 
 async function displayAlbums() {
   // let a = await fetch(`https://192.168.0.109:5500/songs/`)
-  let a = await fetch(`/songs/`)
+  let a = await fetch(`/${folder}/songs/`)
   // let a = await fetch(`/songs/`) //Jab isko Host karenge tab httpss: wala use nahi kar sakte hai but aise chalane ke liye wahi use hoga
   let response = await a.text();
   let div = document.createElement("div")
