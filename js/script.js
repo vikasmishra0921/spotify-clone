@@ -22,7 +22,7 @@ function convertSecondsToMinuteSeconds(seconds) {
 async function getsongs(folder) {
   currFolder = folder;
   // let a = await fetch(`https://192.168.0.109:5500/${folder}/`)
-  let a = await fetch(`/${folder}/Songs/${folder}/`) //yaha or display album mein change rna h
+  let a = await fetch(`/Songs/${folder}/`) //yaha or display album mein change rna h
 
   // let a = await fetch(`/songs/`)
 

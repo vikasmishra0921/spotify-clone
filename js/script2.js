@@ -22,7 +22,7 @@ function convertSecondsToMinuteSeconds(seconds) {
 async function getsongs(folder) {
   currFolder = folder;
   // let a = await fetch(`https://192.168.0.109:5500/${folder}/`)
-  let a = await fetch(`https://spotify-clone-omega-self.vercel.app-omega-self.vercel.app/${folder}/`)
+  let a = await fetch(`/${folder}/`)
 
   // let a = await fetch(`/songs/`)
 
@@ -95,7 +95,7 @@ const playMusic = (track, pause = false) => {
 
 async function displayAlbums() {
   // let a = await fetch(`https://192.168.0.109:5500/songs/`)
-  let a = await fetch(`https://spotify-clone-omega-self.vercel.app-omega-self.vercel.app/songs/`)
+  let a = await fetch(`/songs/`)
   // let a = await fetch(`/songs/`) //Jab isko Host karenge tab httpss: wala use nahi kar sakte hai but aise chalane ke liye wahi use hoga
   let response = await a.text();
   let div = document.createElement("div")
@@ -118,7 +118,7 @@ async function displayAlbums() {
 
 
       //GEt the metadata of the folder
-      let a = await fetch(`https://spotify-clone-omega-self.vercel.app-omega-self.vercel.app/songs/${folder}/info.json`)
+      let a = await fetch(`/songs/${folder}/info.json`)
       let response = await a.json();
       // console.log(response)
       cardContainer.innerHTML = cardContainer.innerHTML + ` <div data-folder="${folder}" class="card">
